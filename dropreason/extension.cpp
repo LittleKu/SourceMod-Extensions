@@ -44,8 +44,6 @@ IForward *g_pfwClientDropReason = NULL;
 
 DETOUR_DECL_MEMBER1(PerformDisconnection, void, const char *, reason)
 {
-	DETOUR_MEMBER_CALL(PerformDisconnection)(reason);
-
 	IClient *pClient = reinterpret_cast<IClient*>((char*)this + 4);
 	
 	int iSlot = pClient->GetPlayerSlot();
@@ -55,6 +53,8 @@ DETOUR_DECL_MEMBER1(PerformDisconnection, void, const char *, reason)
 	g_pfwClientDropReason->PushString(lpName);
 	g_pfwClientDropReason->PushString(reason);
 	g_pfwClientDropReason->Execute(NULL);
+	
+	DETOUR_MEMBER_CALL(PerformDisconnection)(reason);
 }
 
 bool CDropReason::SDK_OnLoad(char *error, size_t maxlength, bool late)
@@ -73,7 +73,7 @@ bool CDropReason::SDK_OnLoad(char *error, size_t maxlength, bool late)
 	if (g_pDetourPerformDisconnection != NULL)
 		g_pDetourPerformDisconnection->EnableDetour();
 
-	g_pfwClientDropReason = forwards->CreateForward("OnClientDropPost", ET_Ignore, 3, NULL, Param_Cell, Param_String, Param_String);
+	g_pfwClientDropReason = forwards->CreateForward("OnClientDrop", ET_Ignore, 3, NULL, Param_Cell, Param_String, Param_String);
 
 	return true;
 }

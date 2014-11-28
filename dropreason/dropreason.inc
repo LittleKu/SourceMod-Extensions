@@ -11,7 +11,7 @@
  * @param reason		The reason why the player drop from the server.
  *
 */
-forward OnClientDropPost(iSlot, const String:szName[], const String:szReason[]);
+forward OnClientDrop(iSlot, const String:szName[], const String:szReason[]);
 
 public Extension:__ext_dropreason =
 {

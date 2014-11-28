@@ -1366,7 +1366,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;$(HL2SDKCSGO)\lib\public\interfaces.lib&quot; &quot;$(HL2SDKCSGO)\lib\public\tier0.lib&quot; &quot;$(HL2SDKCSGO)\lib\public\tier1.lib&quot; &quot;$(HL2SDKCSGO)\lib\public\vstdlib.lib&quot;"
-				OutputFile="$(OutDir)\sample.ext.2.csgo.dll"
+				OutputFile="$(OutDir)\dropreason.ext.dll"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC;LIBCD;LIBCMT"
 				GenerateDebugInformation="true"
@@ -1395,7 +1395,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy &quot;$(OutDir)\sample.ext.2.csgo.dll&quot; &quot;E:\steamcmd740server\csgo\addons\sourcemod\extensions\sample.ext.2.csgo.dll&quot;"
+				CommandLine=""
 			/>
 		</Configuration>
 		<Configuration
@@ -1425,7 +1425,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/MP /D SE_EPISODEONE=1 /D SE_DARKMESSIAH=2 /D SE_ORANGEBOX=3 /D SE_BLOODYGOODTIME=4 /D SE_EYE=5 /D SE_ORANGEBOXVALVE=6 /D SE_LEFT4DEAD=7 /D SE_LEFT4DEAD2=8 /D SE_ALIENSWARM=9 /D SE_PORTAL2=10 /D SE_CSGO=11"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="..;..\sdk;..\..;..\..\sourcepawn;&quot;$(HL2SDKCSGO)\public&quot;;&quot;$(HL2SDKCSGO)\public\engine&quot;;&quot;$(HL2SDKCSGO)\public\game\server&quot;;&quot;$(HL2SDKCSGO)\public\tier0&quot;;&quot;$(HL2SDKCSGO)\public\tier1&quot;;&quot;$(MMSOURCE19)\core&quot;;&quot;$(MMSOURCE19)\core\sourcehook&quot;"
+				AdditionalIncludeDirectories="..;..\..;&quot;$(SOURCEMOD)\public&quot;;&quot;$(SOURCEMOD)\public\sourcepawn&quot;;&quot;$(HL2SDKCSGO)\public&quot;;&quot;$(HL2SDKCSGO)\public\engine&quot;;&quot;$(HL2SDKCSGO)\public\game\server&quot;;&quot;$(HL2SDKCSGO)\public\tier0&quot;;&quot;$(HL2SDKCSGO)\public\tier1&quot;;&quot;$(MMSOURCE19)\core&quot;;&quot;$(MMSOURCE19)\core\sourcehook&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;SDK_EXPORTS;_CRT_SECURE_NO_DEPRECATE;SOURCEMOD_BUILD;COMPILER_MSVC;COMPILER_MSVC32;SOURCE_ENGINE=11"
 				RuntimeLibrary="0"
 				EnableEnhancedInstructionSet="0"
@@ -1447,7 +1447,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="&quot;$(HL2SDKCSGO)\lib\public\interfaces.lib&quot; &quot;$(HL2SDKCSGO)\lib\public\tier0.lib&quot; &quot;$(HL2SDKCSGO)\lib\public\tier1.lib&quot; &quot;$(HL2SDKCSGO)\lib\public\vstdlib.lib&quot;"
-				OutputFile="$(OutDir)\sample.ext.2.csgo.dll"
+				OutputFile="$(OutDir)\dropreason.ext.dll"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBC;LIBCD;LIBCMTD"
 				GenerateDebugInformation="true"

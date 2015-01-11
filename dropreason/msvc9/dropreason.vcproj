@@ -1395,7 +1395,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine=""
+				CommandLine="copy &quot;$(OutDir)\dropreason.ext.dll&quot; &quot;F:\steamcmd740server\csgo\addons\sourcemod\extensions\dropreason.ext.dll&quot;"
 			/>
 		</Configuration>
 		<Configuration

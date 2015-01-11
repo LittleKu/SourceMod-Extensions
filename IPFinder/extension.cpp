@@ -556,6 +556,8 @@ char *CIpFinder::ANSIToUTF8(const char *lpString, size_t nSize)
 	cd = iconv_open("utf-8","gb2312");
 	static char output[1024];
 	static char input[1024];
+
+	memset(input, 0, sizeof(input));
 	strncpy(input, lpString, nSize);
 
 	char *inp = input;
@@ -621,7 +623,7 @@ static cell_t sm_ipsee_info(IPluginContext *pCtx, const cell_t *params)
 
 const sp_nativeinfo_t ip_native[] = 
 {
-	{"ipsee_info",		sm_ipsee_info},
+	{"IPFinder_info",		sm_ipsee_info},
 	{NULL,					NULL},
 };
 

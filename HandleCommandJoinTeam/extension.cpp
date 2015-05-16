@@ -41,10 +41,15 @@ SMEXT_LINK(&g_Ext);
 
 IGameConfig *g_pGameConf = NULL;
 CDetour *g_pDetourHandleCommandJoinTeam = NULL;
+IForward *g_pfwOnJoinTeam = NULL;
+extern sp_nativeinfo_t natives[];
+
+int mlTeam = 0;
 
 DETOUR_DECL_MEMBER3(HandleCommandJoinTeam, bool, int, team, bool, bStatus, int, a)
 {
-	printf("\n\tteam \"%d\", b \"%d\" member\"%d\"\n", team, a, *(int*)((char*)this + 3032));
+	//printf("\n\tteam \"%d\", b \"%d\" member\"%d\"\n", team, a, *(int*)((char*)this + 3032));
+	//*(bool*)((char*)this + 5249) = true;/*m_iCoachingTeam*/
 	bool bRet = DETOUR_MEMBER_CALL(HandleCommandJoinTeam)(team, bStatus, a);
 	
 	return bRet;
@@ -66,6 +71,7 @@ bool CHandleCommandJoinTeam::SDK_OnLoad(char *error, size_t maxlength, bool late
 	if (g_pDetourHandleCommandJoinTeam != NULL)
 		g_pDetourHandleCommandJoinTeam->EnableDetour();
 
+	sharesys->AddNatives(myself, natives);
 	return true;
 }
 
@@ -75,3 +81,14 @@ void CHandleCommandJoinTeam::SDK_OnUnload()
 	if (g_pDetourHandleCommandJoinTeam != NULL)
 		g_pDetourHandleCommandJoinTeam->Destroy();
 }
+
+static cell_t JoinTeam_Return(IPluginContext *pContext, const cell_t *params)
+{
+	return 1;
+}
+
+sp_nativeinfo_t natives[] =
+{
+	{"JoinTeam_Return",JoinTeam_Return},
+	{NULL,NULL}
+};
